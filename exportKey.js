@@ -4,4 +4,6 @@ const { Wallet } = require("ethers");
 const mnemonic = "这里填你的12或24个英文单词，用空格分隔";
 
 const wallet = Wallet.fromPhrase(mnemonic);
+
+
 console.log("0x开头的私钥是：", wallet.privateKey);
