@@ -1,0 +1,44 @@
+{
+  "name": "wonton-v2-football-nft",
+  "version": "2.0.0",
+  "description": "Football Betting NFT Platform V2 - Base Chain Style UI",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
+    "@walletconnect/sign-client": "^2.21.7",
+    "@web3-react/core": "^8.2.3",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/walletconnect-connector": "^6.2.13",
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.6.0",
+    "framer-motion": "^10.16.0",
+    "lucide-react": "^0.292.0",
+    "next": "^14.0.0",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "recharts": "^2.15.4",
+    "tailwindcss": "^3.3.0",
+    "web3": "^4.2.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "dotenv": "^17.2.1",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^14.0.0",
+    "ethers": "^6.15.0",
+    "hardhat": "^2.26.2",
+    "hardhat-deploy": "^1.0.4",
+    "typescript": "^5.2.0"
+  }
+}

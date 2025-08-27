@@ -1,0 +1,576 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 黑白主题色彩系统 */
+:root {
+  /* 主色调 - 黑白灰 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #eeeeee;
+  
+  /* 文字颜色 */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  
+  /* 边框颜色 */
+  --border-light: #e0e0e0;
+  --border-medium: #bdbdbd;
+  --border-dark: #757575;
+  
+  /* 强调色 - 调整为不同深度的黑色 */
+  --accent-blue: #212121;
+  --accent-green: #10b981;  /* 保持绿色 */
+  --accent-red: #ef4444;    /* 保持红色 */
+  --accent-orange: #757575;
+  --accent-purple: #9e9e9e;
+  
+  /* 状态颜色 */
+  --success: #10b981;  /* 绿色 */
+  --warning: #f59e0b;
+  --error: #ef4444;    /* 红色 */
+  --info: #757575;
+}
+
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 卡片组件 */
+.minimal-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: none;
+}
+
+.minimal-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+  transform: none;
+}
+
+/* 按钮组件 - 更新为黑白风格 */
+.minimal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.minimal-btn.primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.minimal-btn.secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.minimal-btn:hover {
+  background: var(--bg-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.minimal-btn.primary:hover {
+  background: var(--text-primary);
+  opacity: 0.9;
+}
+
+/* 导航栏样式 */
+.minimal-nav {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.minimal-nav-link {
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.minimal-nav-link:hover,
+.minimal-nav-link.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+}
+
+/* 表单元素 */
+.minimal-input {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.minimal-input:focus {
+  outline: none;
+  border-color: var(--border-dark);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 标签样式 */
+.minimal-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+/* 表格样式 */
+.minimal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.minimal-table th,
+.minimal-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.minimal-table th {
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+}
+
+/* 分隔线 */
+.minimal-divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: 16px 0;
+  border: none;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-dark);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .minimal-card {
+    border-radius: 6px;
+  }
+  
+  .minimal-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .minimal-table th,
+  .minimal-table td {
+    padding: 8px 12px;
+  }
+}
+
+/* 队徽样式 */
+.team-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.team-logo-small {
+  width: 24px;
+  height: 24px;
+}
+
+.team-logo-large {
+  width: 48px;
+  height: 48px;
+}
+
+.team-logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* 积分榜样式 */
+.standings-table {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.standings-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px 40px 40px 40px 40px 40px;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color 0.2s ease;
+}
+
+.standings-row:hover {
+  background: var(--bg-secondary);
+}
+
+.standings-row:last-child {
+  border-bottom: none;
+}
+
+.standings-header {
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.standings-position {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.standings-team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.standings-team-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.standings-stats {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* 输入框组件 */
+.minimal-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.minimal-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.minimal-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* 标签组件 */
+.minimal-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border-light);
+}
+
+.minimal-tag-primary {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.minimal-tag-success {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--success);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.minimal-tag-warning {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--warning);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.minimal-tag-danger {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--error);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* 导航组件 */
+.minimal-nav {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  backdrop-filter: blur(8px);
+}
+
+.minimal-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.minimal-nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.minimal-nav-link.active {
+  color: var(--accent-blue);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.minimal-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--accent-blue);
+  border-radius: 1px;
+}
+
+/* 表格组件 */
+.minimal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+}
+
+.minimal-table th,
+.minimal-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.minimal-table th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.minimal-table td {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.minimal-table tr:hover {
+  background: var(--bg-secondary);
+}
+
+/* 状态指示器 */
+.status-live {
+  display: flex;
+  align-items: center;
+  color: var(--error);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-upcoming {
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.status-finished {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* 价格变动 */
+.price-up {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.price-down {
+  color: var(--error);
+  font-weight: 600;
+}
+
+/* 买卖按钮 */
+.btn-buy {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.btn-buy:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.btn-sell {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid var(--error);
+}
+
+.btn-sell:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* 订单簿样式 */
+.order-book .bids {
+  color: var(--success);
+}
+
+.order-book .asks {
+  color: var(--error);
+}
+
+/* 价格深度图 */
+.depth-chart .bid-area {
+  fill: rgba(16, 185, 129, 0.1);
+  stroke: var(--success);
+}
+
+.depth-chart .ask-area {
+  fill: rgba(239, 68, 68, 0.1);
+  stroke: var(--error);
+}
+
+/* 交易对价格 */
+.price-positive {
+  color: var(--success);
+}
+
+.price-negative {
+  color: var(--error);
+}
+
+/* 24小时涨跌幅 */
+.change-positive {
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.change-negative {
+  color: var(--error);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* 交易对标签 */
+.pair-tag {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+}
+
+/* 交易量 */
+.volume-up {
+  color: var(--success);
+}
+
+.volume-down {
+  color: var(--error);
+}
